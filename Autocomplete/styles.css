@@ -1,0 +1,50 @@
+body {
+    font-family: sans-serif;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input {
+    border-radius: 10px;
+    border: 1px 1ps solid;
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+button {
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: palegreen;
+    color: white;
+    font-size: 20px;
+}
+
+body h1 {
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    padding-right: 10px;
+    margin-left: 52rem;
+}
+
+input:focus {
+    border: 2px solid yellow;
+}
+
+.suggestion-container {
+    display: none;
+    max-height: 300px;
+    overflow-y: scroll;
+    border: 1px solid silver;
+}
+
+.suggestion-visiable {
+    display: block;
+}
