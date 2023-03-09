@@ -19,6 +19,7 @@ const renderDropedItem = (list) => {
     const el = document.createElement("div");
     el.innerHTML = item;
     el.classList.add("dropdown-item");
+    el.setAttribute("data-key", item);
     suggestionFragment.appendChild(el);
   });
   suggestion.innerHTML = "";
@@ -67,6 +68,14 @@ const debouncing = (fn, duratrion) => {
     }, duratrion);
   };
 };
+const handleSelect = (event) => {
+  const { key } = event.target.dataset;
+  if (key) {
+    inputBox.value = key;
+  }
+};
 
-(() =>
-  inputBox.addEventListener("input", debouncing(handleInputChange, 500)))();
+(() => {
+  inputBox.addEventListener("input", debouncing(handleInputChange, 500));
+  suggestion.addEventListener("click", handleSelect);
+})();
