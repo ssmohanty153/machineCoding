@@ -27,8 +27,11 @@ const renderDropedItem = (list) => {
 };
 
 const handleSearch = async (keywords) => {
-  const results = await getSuggestions(keywords);
-  console.log(results);
+  const controller = new AbortController();
+
+  const results = await getSuggestions(keywords, { signal: controller.signal });
+  controller.abort();
+  console.log(results,"results");
   if (results.length) {
     suggestion.classList.add("suggestion-visiable");
     renderDropedItem(results);
